@@ -4,6 +4,10 @@
 ## 📚 Índice
 
 - [🛍️ Vue Shop - Sistema de Tienda Online](#-vue-shop---sistema-de-tienda-online)
+  - [1. ¿Cómo observar una propiedad anidada en un objeto `reactive`?](#1-cómo-observar-una-propiedad-anidada-en-un-objeto-reactive)
+  - [2. ¿Cómo funciona `watch()` con objetos `reactive`?](#2-cómo-funciona-watch-con-objetos-reactive)
+  - [3. ¿Cómo detectar cambios en `stock` dentro de un array de productos?](#3-cómo-detectar-cambios-en-stock-dentro-de-un-array-de-productos)
+
 - [🧠 Preguntas sobre Vue y Reactividad](#-preguntas-sobre-vue-y-reactividad)
 - [🚀 Funcionalidades principales](#-funcionalidades-principales)
   - [🧾 Inventario](#-inventario)
