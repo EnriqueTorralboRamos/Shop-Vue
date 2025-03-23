@@ -1,6 +1,23 @@
 
 # 🛍️ Vue Shop - Sistema de Tienda Online
 
+## 📚 Índice
+
+- [🛍️ Vue Shop - Sistema de Tienda Online](#-vue-shop---sistema-de-tienda-online)
+- [🧠 Preguntas sobre Vue y Reactividad](#-preguntas-sobre-vue-y-reactividad)
+- [🚀 Funcionalidades principales](#-funcionalidades-principales)
+  - [🧾 Inventario](#-inventario)
+  - [🛒 Carrito](#-carrito)
+  - [🛍️ Tienda](#-tienda)
+  - [📦 Detalle de Producto](#-detalle-de-producto)
+  - [🏠 Página de inicio](#-página-de-inicio)
+  - [📢 Notificaciones reutilizables](#-notificaciones-reutilizables)
+- [🛠️ Tecnologías utilizadas](#-tecnologías-utilizadas)
+- [📂 Estructura del proyecto](#-estructura-del-proyecto)
+- [💡 Futuras mejoras (ideas)](#-futuras-mejoras-ideas)
+- [🧑‍💻 Autor](#-autor)
+
+
 ## 🧠 Respuestas sobre Vue y Reactividad
 
 
@@ -94,41 +111,43 @@ watch(
 Este proyecto es una tienda online desarrollada con **Vue 3**, que permite a los usuarios explorar productos, añadirlos al carrito y gestionar su stock. El sistema también incluye vistas para administración, control de inventario y notificaciones.
 
 
-## 🚀 Funcionalidades principales
+### 🚀 Funcionalidades principales
+---
 
-### 🧾 Inventario
+#### 🧾 Inventario
 - Visualización de productos disponibles.
 - Modificación del stock (vender/reponer).
 - Reactividad automática: si el stock es 0, el producto aparece como "Agotado".
 
-### 🛒 Carrito
+#### 🛒 Carrito
 - Añadir productos al carrito (respetando el stock).
 - Aumentar, disminuir o eliminar productos del carrito.
 - Vaciar carrito con botón específico.
 - Vista desplegable con scroll limitado y animaciones.
 - Notificaciones contextuales al interactuar con el carrito.
 
-### 🛍️ Tienda
+#### 🛍️ Tienda
 - Visualización de productos en formato grid con tarjetas (cards).
 - Redirección a la vista individual de cada producto.
 - Botón para añadir al carrito desde la tarjeta.
 
-### 📦 Detalle de Producto
+#### 📦 Detalle de Producto
 - Página de detalle que muestra la información completa del producto.
 - Botón para volver a la vista anterior.
 
-### 🏠 Página de inicio
+#### 🏠 Página de inicio
 - Botones para redirigir a la Tienda o Administración.
 - Botón adicional para lanzar notificaciones de prueba.
 
-### 📢 Notificaciones reutilizables
+#### 📢 Notificaciones reutilizables
 - Implementadas como utilidad (función global).
 - Tipos: `success`, `error`, `info`.
 - Aparecen en la parte inferior derecha de la pantalla.
 
 ---
 
-## 🛠️ Tecnologías utilizadas
+### 🛠️ Tecnologías utilizadas
+---
 
 | Tecnología        | Propósito                                  |
 |------------------|----------------------------------------------|
@@ -141,7 +160,8 @@ Este proyecto es una tienda online desarrollada con **Vue 3**, que permite a los
 
 ---
 
-## 📂 Estructura del proyecto
+### 📂 Estructura del proyecto
+---
 ```bash
 src/
 │
@@ -154,7 +174,8 @@ src/
 ├── router/              # Definición de rutas
 └── App.vue              # Componente raíz
 ```
-## 💡 Futuras mejoras (ideas)
+### 💡 Futuras mejoras (ideas)
+---
 
 - Autenticación para área de administración.
 - Backend real con conexión a base de datos.
@@ -164,6 +185,7 @@ src/
 
 ---
 
-## 🧑‍💻 Autor
+### 🧑‍💻 Autor
+---
 
 Desarrollado por Enrique Torralbo como parte de un proyecto educativo con Vue 3 y TypeScript.
