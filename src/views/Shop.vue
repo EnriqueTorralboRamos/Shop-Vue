@@ -33,7 +33,7 @@
   </template>
   
   <script setup lang="ts">
-  import Cart from './Carrito.vue'
+  import Cart from '../components/Cart.vue'
   import { productosBase as baseProducts } from '../data/products'
   import type { Product } from '../types/Product'
   import { useCartStore } from '../stores/cart'
