@@ -1,36 +1,38 @@
 <script setup lang="ts">
-import { reactive, watch } from 'vue'
 import type { Product } from '../types/Product'
-import { fetchProductos } from '../services/product'
-import { actualizarStock } from '../services/product' // luego lo definimos
-import { onMounted } from 'vue'
+import { actualizarStock, fetchProductos } from '../services/product'
+import { onMounted, reactive, ref, watch } from 'vue'
 
-const products = reactive<Product[]>([])
+const products = ref<Product[]>([])
+
 onMounted(async () => {
   const response = await fetchProductos()
-  products.push(...response)
 
+  // Reconvertimos cada producto en un objeto reactivo individual
+  products.value = response.map((p: Product) => reactive({ ...p }))
+
+  // Establecemos los watchers luego
+  products.value.forEach((product) => {
+    watch(
+      () => product.stock,
+      (newStock) => {
+        product.available = newStock > 0
+      }
+    )
+  })
 })
 
-products.forEach((product) => {
-  watch(
-    () => product.stock,
-    (newStock) => {
-      product.available = newStock > 0
-    }
-  )
-})
 
 async function sell(index: number) {
-  if (products[index].stock > 0) {
-    products[index].stock--
-    await actualizarStock(products[index].id, -1)
+  if (products.value[index].stock > 0) {
+    products.value[index].stock--
+    await actualizarStock(products.value[index].id.toString(), -1)
   }
 }
 
 async function restock(index: number) {
-  products[index].stock++
-  await actualizarStock(products[index].id, 1)
+  products.value[index].stock++
+  await actualizarStock(products.value[index].id.toString(), 1)
 }
 </script>
 

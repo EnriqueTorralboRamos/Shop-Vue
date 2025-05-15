@@ -2,10 +2,10 @@
     <div v-if="product" class="product-view">
       <h1>{{ product.name }}</h1>
       <img
-        :src="product.productImage || defaultImage"
+        :src="product.image || defaultImage"
         :alt="product.name"
       />
-      <p v-if="product.productDescription">{{ product.productDescription }}</p>
+      <p v-if="product.descripction">{{ product.descripction }}</p>
       <p><strong>Precio:</strong> ${{ product.price }}</p>
       <p><strong>Stock:</strong> {{ product.stock }}</p>
       <p :style="{ color: product.available ? 'green' : 'red' }">
@@ -21,15 +21,21 @@
   
   <script setup lang="ts">
   import { useRoute, useRouter } from 'vue-router'
-  import { productosBase as baseProducts } from '../data/products'
+  import { fetchProductoById } from '../services/product'
+  import { ref, onMounted } from 'vue'
   import type { Product } from '../types/Product'
   
   const route = useRoute()
   const router = useRouter()
   const id = route.params.id as string
   const defaultImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-ytBNU72ZNhsQfEFpoW2iLtpl80L4ug8AJg&s'
-  
-  const product: Product | undefined = baseProducts.find(p => p.id === id)
+  const product = ref<Product | null>(null)
+
+  onMounted(async () => {
+  const producto = await fetchProductoById((id))
+  product.value = producto
+})
+
   
   function goBack() {
     router.back()

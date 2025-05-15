@@ -13,12 +13,13 @@
             class="card-link"
           >
             <img
-              :src="product.productImage || defaultImage"
+              :src="product.image || defaultImage"
               :alt="product.name"
             />
             <h2>{{ product.name }}</h2>
             <p><strong>Precio:</strong> ${{ product.price }}</p>
             <p>{{ product.available ? 'Disponible' : 'Agotado' }}</p>
+            <p><strong>Stock:</strong> {{ product.stock }}</p>
           </router-link>
   
           <button
@@ -34,11 +35,18 @@
   
   <script setup lang="ts">
   import Cart from '../components/Cart.vue'
-  import { productosBase as baseProducts } from '../data/products'
   import type { Product } from '../types/Product'
   import { useCartStore } from '../stores/cart'
+  import { fetchProductos } from '../services/product'
+  import { ref, onMounted } from 'vue'
+
   
-  const products: Product[] = baseProducts
+  const products = ref<Product[]>([])
+  onMounted(async () => {
+    const fetched = await fetchProductos()
+    products.value = fetched.map((p: Product) => ({ ...p })) // puedes usar reactive si vas a modificar
+  })
+
   const defaultImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-ytBNU72ZNhsQfEFpoW2iLtpl80L4ug8AJg&s'
   const cart = useCartStore()
   
