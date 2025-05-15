@@ -1,9 +1,16 @@
 <script setup lang="ts">
 import { reactive, watch } from 'vue'
 import type { Product } from '../types/Product'
-import { productosBase as baseProducts } from '../data/products'
+import { fetchProductos } from '../services/product'
+import { actualizarStock } from '../services/product' // luego lo definimos
+import { onMounted } from 'vue'
 
-const products = reactive<Product[]>([...baseProducts])
+const products = reactive<Product[]>([])
+onMounted(async () => {
+  const response = await fetchProductos()
+  products.push(...response)
+
+})
 
 products.forEach((product) => {
   watch(
@@ -14,14 +21,16 @@ products.forEach((product) => {
   )
 })
 
-function sell(index: number) {
+async function sell(index: number) {
   if (products[index].stock > 0) {
     products[index].stock--
+    await actualizarStock(products[index].id, -1)
   }
 }
 
-function restock(index: number) {
+async function restock(index: number) {
   products[index].stock++
+  await actualizarStock(products[index].id, 1)
 }
 </script>
 
