@@ -1,6 +1,10 @@
 
 # 🛍️ Vue Shop - Sistema de Tienda Online
 
+> **Nota:** Estás en la rama `Without-backend`, que permite probar la aplicación **sin necesidad de backend**.
+> Para acceder a la versión completa conectada al backend en Flask + GraphQL, vuelve a la rama principal [`main`](https://github.com/EnriqueTorralboRamos/Shop-Vue/tree/main).
+
+
 ## 📚 Índice
 
 - [🛍️ Vue Shop - Sistema de Tienda Online](#-vue-shop---sistema-de-tienda-online)
