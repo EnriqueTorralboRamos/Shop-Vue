@@ -1,6 +1,12 @@
 
 # 🛍️ Vue Shop - Sistema de Tienda Online
 
+> **ℹ️ IMPORTANTE:** Esta aplicación utiliza un backend desarrollado con Flask y GraphQL.  
+> Si deseas probar la aplicación **sin necesidad de backend**, cambia a la rama [`Without-backend`](https://github.com/EnriqueTorralboRamos/Shop-Vue/tree/Without-backend).
+
+- 🔗 [Repositorio del backend](https://github.com/EnriqueTorralboRamos/shop-backend-Flask-GraphQL.git)
+
+
 ## 📚 Índice
 
 - [🛍️ Vue Shop - Sistema de Tienda Online](#-vue-shop---sistema-de-tienda-online)
